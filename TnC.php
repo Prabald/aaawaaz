@@ -111,8 +111,6 @@ else {
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" style="font-size:13px;" href="#"><?php echo   $firstname." ".$lastname; ?></a>
           <a class="dropdown-item" style="font-size:13px;" href="#">session id <?php echo $Session_id; ?></a>
-          <a class="dropdown-item" style="font-size:10px;" href="tnc.php">Terms And Conditions</a>
-          <a class="dropdown-item" style="font-size:10px;" href="privacypolicy.php">Privacy Policy</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" style="font-size:13px;" href="logout.php">  Logout</a>
         </div>
