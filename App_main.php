@@ -147,7 +147,8 @@ else {
     // image file directory
     $target = "images/".basename($file);
 
-    $sql = "INSERT INTO activity (file,text) VALUES ('$file', '$text_t')";
+     $pinC = $_POST['pinn'];
+    $sql = "INSERT INTO activity (file,text,pincode) VALUES ('$file', '$text_t','$pinC')";
     // execute query
     
     mysqli_query($db, $sql);
@@ -169,6 +170,17 @@ else {
       <div class="card-body">
         <form method="POST" action="App_main.php" enctype="multipart/form-data">
           <input type="hidden" name="size" value="1000000">
+
+
+            <?php 
+                      $finalcode = mysqli_query($db, "SELECT pin FROM users WHERE id='$Session_id'");
+                       while ($row = mysqli_fetch_array($finalcode)) {
+                 $final_code = $row['pin'];
+            
+                                }
+
+            ?>
+          <input type="hidden" name="pinn" value="<?php echo $final_code;?>">
           <textarea 
               id="text" 
               cols="87" 
@@ -195,7 +207,7 @@ else {
         echo "<div class='card'>";
         echo "<div class='card-header'>";
        // this is header
-        echo   $firstname." ".$lastname;
+        echo  "<h3><b>". $firstname." ".$lastname."</b></h3>";
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
@@ -223,11 +235,11 @@ $location=mysqli_query($db, "SELECT * FROM users WHERE email=$email");
 ?>
   <div class="col-sm-4">
     <div class="row">
-        <h4>Raised issue in <?php echo $location; ?><br>is 44</h4>
+        <h4>Raised issue in <?php echo $location; ?><br><?php echo $final_code;?></h4>
     </div>
     <br><br>
     <div class="row">
-        <h4>issues raised by you<br>is 8</h4>
+        <h4>Number of issues raised by you are <br> 8</h4>
     </div>
 
   </div>
