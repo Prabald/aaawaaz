@@ -138,7 +138,9 @@ Children under the age of 13 are not allowed to create an account or otherwise u
 Aawaz grants you a personal and non-transferable limited license to use and access the Services solely as permitted by these Terms. We reserve all rights not expressly granted to you by these Terms.
 <br>
 Except as permitted through the Services or as otherwise permitted by us in writing, your license does not include the right to:
+<br>
 • license, sell, transfer, assign, distribute, host, or otherwise   commercially exploit the Services or Content.
+<br>
 • modify, prepare derivative works of, disassemble, any part of the   Services or Content.
 <br>
 We reserve the right to modify, suspend, or discontinue the Services (in whole or in part) at any time, with or without notice to you. Any future release, update, or other addition to functionality of the Services will be subject to these Terms, which may be updated from time to time. You agree that we will not be liable to you or to any third party for any modification, suspension, or discontinuation of the Services or any part thereof.
