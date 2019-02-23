@@ -150,8 +150,8 @@ else {
     $target = "images/".basename($file);
 
      $pinC = $_POST['pinn'];
-     $u_ID = $_POST['uID']
-    $sql = "INSERT INTO activity (file,text,pincode) VALUES ('$file', '$text_t','$pinC',$u_ID)";
+     $u_ID = $_POST['uID'];
+    $sql = "INSERT INTO activity (file,text, pincode, u_ID) VALUES ('$file', '$text_t','$pinC',$u_ID)";
     // execute query
     
     mysqli_query($db, $sql);
@@ -179,6 +179,19 @@ else {
                       $finalcode = mysqli_query($db, "SELECT pin FROM users WHERE id='$Session_id'");
                        while ($row = mysqli_fetch_array($finalcode)) {
                  $final_code = $row['pin'];
+            
+                                }
+
+                                $Name1_query = mysqli_query($db, "SELECT first_name FROM users WHERE uID='$Session_id'");
+                                $Name2_query = mysqli_query($db, "SELECT last_name FROM users WHERE id='$Session_id'");
+
+                       while ($row = mysqli_fetch_array($Name1_query)) {
+                 $first_name = $row['first_name'];
+            
+                                }
+
+                                while ($row = mysqli_fetch_array($Name2_query)) {
+                 $last_name = $row['last_name'];
             
                                 }
 
@@ -221,8 +234,7 @@ else {
 
        // this is footer
         echo "<p>".$row['text']."</p>";
-        echo "<form action="Review.php" method="POST"><label class="container"><b>0: Not at all</b><input type="checkbox" checked="checked"><span class="checkmark"></span></label><label class="container">Two<input type="checkbox"><span class="checkmark"></span></label><label class="container">Three<input type="checkbox"><span class="checkmark"></span></label><label class="container">Four<input type="checkbox"><span class="checkmark"></span></label><label class="container">Four<input type="checkbox"><span class="checkmark"></span></label></form>";
-        echo "</div></div> </div><br>";
+  
     }
   ?>
          
