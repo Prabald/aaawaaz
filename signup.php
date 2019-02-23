@@ -38,10 +38,10 @@
       <h1 class="h3 mb-3 font-weight-normal" id="signintext">Please Sign Up</h1>
       <div class="row">
       	<div class="col-sm">
-       <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" required autofocus>
+       <input type="text" id="firstname" pattern="[A-Za-z]{40}" name="firstname" class="form-control" placeholder="First Name" required autofocus>
         </div>
         <div class="col-sm">
-       <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
+       <input type="text" id="lastname" pattern="[A-Za-z]{40}" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
          </div>
 
    </div>
