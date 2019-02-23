@@ -62,7 +62,7 @@
 
      <div class='alert alert-success regismsg' role='alert'>Registered Successfully! Now You should Login</div><br><br>
      <a href="login.php"><button class="btn btn-lg btn-primary btn-block hiddenlogin"> Login</button></a><br>
-     <a href="signup.php" id="hiddenlink">Register Another User?</a>
+     <a href="signup.php" id="hiddenlink">New Registeration ?</a>
 
 </div>
       

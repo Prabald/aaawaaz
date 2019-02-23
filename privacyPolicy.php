@@ -127,7 +127,7 @@ else {
       <h2>AAWAZ PRIVACY POLICY </h2> <br>
     
 <h6>
-We want you to understand how and why Aawaaz collects, uses, and shares information about you when you use our services or when you otherwise interact with us or receive a communication from us.</h6><br> 
+We want you to understand how and why Aawaz collects, uses, and shares information about you when you use our services or when you otherwise interact with us or receive a communication from us.</h6><br> 
 <h3>We collect the following:</h3>
 <br>
 <h6>
@@ -146,7 +146,7 @@ Actions you take :  We collect information about the actions you take when using
 We use information about you to:
 • Provide, maintain, and improve the Services;
 • Research and develop new services;
-• Help protect the safety of Aawaaz and our users, which includes blocking suspected spammers, addressing   abuse, and enforcing the Aawaaz user agreement and our other policies;
+• Help protect the safety of Aawaz and our users, which includes blocking suspected spammers, addressing   abuse, and enforcing the Aawaz user agreement and our other policies;
 • Send you technical notices, updates, security alerts, invoices and other support and administrative   messages;
 • Provide customer service;
 <br><br>
@@ -164,21 +164,21 @@ Otherwise, we do not share, sell, or give away your personal information to thir
 <br>
 • In an emergency.  We may share information if we believe it's necessary to prevent imminent and serious bodily harm to a person.
 <br>
-• To enforce our policies and rights.  We may share information if we believe your actions are inconsistent with our user agreements, rules, or other Aawaaz policies, or to protect the rights, property, and safety of ourselves and others.
+• To enforce our policies and rights.  We may share information if we believe your actions are inconsistent with our user agreements, rules, or other Aawaz policies, or to protect the rights, property, and safety of ourselves and others.
 <br>
-• With our affiliates.  We may share information between and among Aawaaz, and any of our parents, affiliates, subsidiaries, and other companies under common control and ownership.
+• With our affiliates.  We may share information between and among Aawaz, and any of our parents, affiliates, subsidiaries, and other companies under common control and ownership.
 <br>
 • With your consent.  We may share information about you with your consent or at your direction.
 <br><br>
 <b>YOUR CHOICES</b>
 <br><br>
-As an Aawaaz user, you have choices about how to protect and limit the collection, use, and disclosure of information about you.
+As an Aawaz user, you have choices about how to protect and limit the collection, use, and disclosure of information about you.
 Accessing and Changing Your Information
 You can access and change certain information through the Services. 
 <br><br>
 <b>CONTACT US</b>
 <br><br>
-If you have any questions about this Privacy Policy, please contact us at contact@Aawaaz.com 
+If you have any questions about this Privacy Policy, please contact us at contact@Aawaz.com 
 </h6>
 <br>
 
