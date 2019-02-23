@@ -6,7 +6,7 @@ session_start();
   if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
  
                        $Session_id = $_SESSION['id'];
-                       @$Isadmin = $_SESSION['admin'];
+                      
                        $email = $_SESSION['email'];
 
                        $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
@@ -150,7 +150,8 @@ else {
     $target = "images/".basename($file);
 
      $pinC = $_POST['pinn'];
-    $sql = "INSERT INTO activity (file,text,pincode) VALUES ('$file', '$text_t','$pinC')";
+     $u_ID = $_POST['uID']
+    $sql = "INSERT INTO activity (file,text,pincode) VALUES ('$file', '$text_t','$pinC',$u_ID)";
     // execute query
     
     mysqli_query($db, $sql);
@@ -183,6 +184,7 @@ else {
 
             ?>
           <input type="hidden" name="pinn" value="<?php echo $final_code;?>">
+          <input type="hidden" name="uID" value="<?php echo $Session_id;?>">
           <textarea 
               id="text" 
               cols="87" 
@@ -209,7 +211,7 @@ else {
         echo "<div class='card'>";
         echo "<div class='card-header'>";
        // this is header
-        echo  "<h3><b>". $firstname." ".$lastname."</b></h3>";
+        echo  "<h3><b>". $first_name." ".$last_name."</b></h3>";
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
