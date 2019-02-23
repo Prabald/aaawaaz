@@ -195,6 +195,7 @@ else {
         echo "<div class='card'>";
         echo "<div class='card-header'>";
        // this is header
+        echo   $firstname." ".$lastname;
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
@@ -215,9 +216,14 @@ else {
   <!-- row close -->
   </div>
 <!-- container start end-->
+<!-- right sidebar start-->
+<?php
+$location=mysqli_query($db, "SELECT * FROM users WHERE email=$email");
+  
+?>
   <div class="col-sm-4">
     <div class="row">
-        <h4>Raised issue in location<br>is 44</h4>
+        <h4>Raised issue in <?php echo $location; ?><br>is 44</h4>
     </div>
     <br><br>
     <div class="row">

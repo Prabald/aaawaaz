@@ -38,15 +38,15 @@
       <h1 class="h3 mb-3 font-weight-normal" id="signintext">Please Sign Up</h1>
       <div class="row">
       	<div class="col-sm">
-       <input type="text" id="firstname" pattern="[A-Za-z]{3}" name="firstname" class="form-control" placeholder="First Name" required autofocus>
+       <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" required autofocus>
         </div>
         <div class="col-sm">
-       <input type="text" id="lastname" pattern="[A-Za-z]{3}" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
+       <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
          </div>
 
    </div>
    <br>
-       <input type="number" id="pin" name="pin" class="form-control" pattern="[0-9]{6}" placeholder="PIN code" required autofocus>
+       <input type="text" id="pin" name="pin" class="form-control" placeholder="PIN code" required autofocus>
        <br>
       <label for="email" class="sr-only">Email address</label>
       <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
@@ -63,15 +63,10 @@
      <div class='alert alert-success regismsg' role='alert'>Registered Successfully! Now You should Login</div><br><br>
      <a href="login.php"><button class="btn btn-lg btn-primary btn-block hiddenlogin"> Login</button></a><br>
      <a href="signup.php" id="hiddenlink">Register Another User?</a>
-     
+
 </div>
       
-      <script>
-        
-
-
-
-      </script>
+      
 
  
 

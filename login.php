@@ -34,7 +34,7 @@
       <br><div class='alert alert-info logout' role='alert'>Successfully Logged Out</div>
       <br>
       <label for="email" class="sr-only">Email address</label> 
-      <input type="email" type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
