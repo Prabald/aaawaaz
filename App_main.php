@@ -215,23 +215,17 @@ else {
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
-        echo "<center><img style='width:50%;height:auto;' src='images/".$row['file']."' ></center>";
+        echo "<center><img style='width:auto;height:300px;' src='images/".$row['file']."' ></center>";
         echo "</div>";
         echo "<div class='card-footer'>";
 
        // this is footer
         echo "<p>".$row['text']."</p>";
-        echo "</div>
-        
-         
-
-
-
-      </div>
-      </div>
-      <br>";
+        echo "<form action="Review.php" method="POST"><label class="container"><b>0: Not at all</b><input type="checkbox" checked="checked"><span class="checkmark"></span></label><label class="container">Two<input type="checkbox"><span class="checkmark"></span></label><label class="container">Three<input type="checkbox"><span class="checkmark"></span></label><label class="container">Four<input type="checkbox"><span class="checkmark"></span></label><label class="container">Four<input type="checkbox"><span class="checkmark"></span></label></form>";
+        echo "</div></div> </div><br>";
     }
   ?>
+         
   <!-- dynamically generating post from data base end-->
   </div>
   <!-- row close -->
