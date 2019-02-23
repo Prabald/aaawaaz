@@ -219,11 +219,15 @@ else {
 
        // this is footer
         echo "<p>".$row['text']."</p>";
-        echo "</div>";
+        echo "</div>
         
-      echo "</div>";
-      echo "</div>";
-      echo "<br>";
+         
+
+
+
+      </div>
+      </div>
+      <br>";
     }
   ?>
   <!-- dynamically generating post from data base end-->

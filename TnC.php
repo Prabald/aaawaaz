@@ -174,6 +174,13 @@ Aawaz respects the intellectual property of others and requires that users of ou
  <center> <p class="mt-5 mb-3 text-muted">&copy; ProxyChains</p></center>
 
    
+ <!-- Required Javascript Files -->
+
+ <script type="text/javascript" src="js/aos.js"></script>
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+   
 <script>
 //This script is a extra of AOS 
       AOS.init({

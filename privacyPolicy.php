@@ -192,6 +192,12 @@ If you have any questions about this Privacy Policy, please contact us at contac
 
 
 
+ <!-- Required Javascript Files -->
+
+ <script type="text/javascript" src="js/aos.js"></script>
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 
    
 <script>
