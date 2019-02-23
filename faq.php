@@ -125,16 +125,20 @@ else {
     <div class="col-md-8">
       <!-- Faq start -->
       <h1>Frequently Asked Questions : </h1> <br>
-     <h5><p><b> 1.Why would any Authority peek into for looking up any content in Aawaz which is not so prerequisite platform?</h5></b><br>
-
-In this speedy world everyone is craving to be a bigger Public figure and no one will ever lose even a single chance to show up their contributions to the world.What Aawaz does is that after posting a concern on a particular topic ,when someone comes out with a solution with it and claims to solve that problem, People are free to review that approach to bring  awareness to everyone about what actually is happening around them.And to achieve a highlighted designation anyone will make a stand for it.<br><br>
-
-<h5><b>2.What defines that a particular query is genuine or not?<br></b></h5><br>
-
-Aawaz ,our Title itself defines that it is Sound of The People,so everyone is free to raise up a query.But whenever a concern is raised at Aawaz, it initialy comes to highlights for the locales from the location of where the concern was raised.People will then review the relevancy and genuinity of the problem and the problem which will be reviewed most severe and genuine by the locales will come to the highlights to make sure that the relevancy is maintained.To be more transparent as well as secure Aawaz, punishes every fake individual.
+     <h5><b> 1. Why would any Authority peek into for looking up any content in Aawaz which is not so prerequisite platform?</h5></b><br>
+     <h6>In this speedy world everyone is craving to be a bigger Public figure and no one will ever lose even a single chance to show up their contributions to the world.What Aawaz does is that after posting a concern on a particular topic ,when someone comes out with a solution with it and claims to solve that problem, People are free to review that approach to bring  awareness to everyone about what actually is happening around them.And to achieve a highlighted designation anyone will make a stand for it.
+</h6>
 <br>
+     <h5><b> 2. What defines if a particular query is genuine or not?</h5></b><br>
+     <h6>Aawaz ,our Title itself defines that it is Sound of The People,so everyone is free to raise up a query.But whenever a concern is raised at Aawaz, it initialy comes to highlights for the locales from the location where the concern was raised.People will then review the relevancy and genuinity of the problem and the problem which will be reviewed most severe and genuine by the locales will come to the highlights to make sure that the relevancy is maintained.To be more transparent as well as secure Aawaz, punishes every fake individual.</h6>
+<br>
+     <h5><b> 3. What makes Aawaz different from other social networking sites?</h5></b><br>
+     <h6>Though Aawaaj offers everyone to raise queries, it does makes sure that the issue is genuine and not Fake/Unverified Viral/Redundant.In addition to it, it allows the people to review the issues and the Authorities who claim to solve them.This system allows a transparent portal for everyone to know different aspects of society.Also using the reviewing capacity enhances the results by pushing most relevant issues to highlights.This helps the people know which Authority works more diligently and with more perfection.</h6>
 
-</p>
+
+
+
+
       <!-- Faq end -->
     </div>
     <div class="col-md-2">

@@ -6,7 +6,7 @@ session_start();
   if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
  
                        $Session_id = $_SESSION['id'];
-                       
+                       @$Isadmin = $_SESSION['admin'];
                        $email = $_SESSION['email'];
 
                        $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
@@ -95,15 +95,14 @@ else {
   <div class="collapse navbar-collapse" style="padding-left:160px;" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link text-right" style="font-size:18px;" href="App_main.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="font-size:18px;" href="App_main.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="font-size:18px;" href="faq.php">FAQ</a>
+        <a class="nav-link text-dark" style="font-size:18px;" href="faq.php">FAQ</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" style="font-size:18px;" href="about.php">About</a>
       </li>
-
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" style="font-size:18px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <img src="images/user.svg">
@@ -125,42 +124,65 @@ else {
     </div>
     <div class="col-md-8">
       <!-- Faq start -->
-      <h1>TERMS AND CONDITIONS</h1> <br>
-      <h6>
-     
-   <b>  1. Your Access to the Services</b>
-<br><br>
-Children under the age of 13 are not allowed to create an account or otherwise use the Services. On the Contrary with Parental Guidance they can approach us.
-<br>In addition, certain of our Services or portions of our Services require you to be older than 13 years of age, so please read all notices and any Additional Terms carefully when you access the Services. 
-<br><br>
-<b>2. Your Use of the Services</b>
-<br><br>
-Aawaz grants you a personal and non-transferable limited license to use and access the Services solely as permitted by these Terms. We reserve all rights not expressly granted to you by these Terms.
+      <h2>AAWAZ PRIVACY POLICY </h2> <br>
+    
+<h6>
+We want you to understand how and why Aawaaz collects, uses, and shares information about you when you use our services or when you otherwise interact with us or receive a communication from us.</h6><br> 
+<h3>We collect the following:</h3>
 <br>
-Except as permitted through the Services or as otherwise permitted by us in writing, your license does not include the right to:
-• license, sell, transfer, assign, distribute, host, or otherwise   commercially exploit the Services or Content.
-• modify, prepare derivative works of, disassemble, any part of the   Services or Content.
+<h6>
+<b>INFORMATION YOU PROVIDE US</b>
+<br><br>
+We collect information you provide to us directly when you use the Services. This includes:
+<br><br>
+Account information :  To create an account, you must provide a username and password. Your username is public, and it doesn’t have to be related to your real name. You must also provide an email address. We also store your user account preferences and settings.
+<br><br>
+Content you submit :  We collect the content you submit to the Services. This includes your posts , reviews, comments , reports and other communications with moderators and with us. Your content may include text, links, images, gifs, and videos.
+<br><br>
+Actions you take :  We collect information about the actions you take when using the Services. This includes your interactions with content, like voting, saving, hiding, and reporting. We collect your interactions with communities, like your subscriptions.
+<br><br>
+<b>HOW WE USE INFORMATION ABOUT YOU</b>
+<br><br>
+We use information about you to:
+• Provide, maintain, and improve the Services;
+• Research and develop new services;
+• Help protect the safety of Aawaaz and our users, which includes blocking suspected spammers, addressing   abuse, and enforcing the Aawaaz user agreement and our other policies;
+• Send you technical notices, updates, security alerts, invoices and other support and administrative   messages;
+• Provide customer service;
+<br><br>
+<b>HOW INFORMATION ABOUT YOU IS SHARED</b>
+<br><br>
+When you use the Services, certain information may be shared with other users and the public. For example:
+• When you submit content (such as a post or comment or public chat) to the Services, any visitors to and users of our Services will be able to see that content, the username associated with the content, and the date and time you originally submitted the content. 
 <br>
-We reserve the right to modify, suspend, or discontinue the Services (in whole or in part) at any time, with or without notice to you. Any future release, update, or other addition to functionality of the Services will be subject to these Terms, which may be updated from time to time. You agree that we will not be liable to you or to any third party for any modification, suspension, or discontinuation of the Services or any part thereof.
-<br><br>
-<b>3. Your Aawaz Account and Account Security</b>
-<br><br>
-To use certain features of our Services, you may be required to create an Aawaz account and provide us with a username, password, and certain other information about yourself.
+• When other users view your profile, they will be able to see information about your activities on the Services, such as your username, prior posts and comments, Your Contributions, Rating, and how long you have been a member of the Services. 
+Please note that, even when you delete your account, the posts, comments and messages you submit through the Services may still be viewable or available on our servers. 
 <br>
-You are solely responsible for the information associated with Your Account and anything that happens related to Your Account. You must maintain the security of your Account. We recommend that you use a strong password that is used only with the Services.
-You will not license, sell, or transfer your Account without our prior written approval.
-<br><br>
-<b>4. Your Content</b>
-<br><br>
-The Services may contain information, text, links, graphics, photos, videos, or other materials including Content created with or submitted to the Services by you or through your Account. We will have every right to declare your Query as redundant if any information is found Incomplete ,False or unwanted.
+Otherwise, we do not share, sell, or give away your personal information to third parties unless one of the following circumstances applies:
 <br>
-Any ideas, suggestions, and feedback about Aawaz or our Services that you provide to us are entirely voluntary, and you agree that Aawaz may use such ideas, suggestions, and feedback without compensation or obligation to you.
+• To comply with the law.  We may share information in response to a request for information if we believe disclosure is in accordance with, or required by, any applicable law, regulation, legal process or governmental request, including, but not limited to, meeting national security or law enforcement requirements. To the extent the law allows it, we will attempt to provide you with prior notice before disclosing your information in response to such a request. 
+<br>
+• In an emergency.  We may share information if we believe it's necessary to prevent imminent and serious bodily harm to a person.
+<br>
+• To enforce our policies and rights.  We may share information if we believe your actions are inconsistent with our user agreements, rules, or other Aawaaz policies, or to protect the rights, property, and safety of ourselves and others.
+<br>
+• With our affiliates.  We may share information between and among Aawaaz, and any of our parents, affiliates, subsidiaries, and other companies under common control and ownership.
+<br>
+• With your consent.  We may share information about you with your consent or at your direction.
 <br><br>
-<b>5. Fake, Viral but unverified and Redundancy of Issues</b>
+<b>YOUR CHOICES</b>
 <br><br>
-Aawaz respects the intellectual property of others and requires that users of our Services do the same. We have a policy that includes the removal of any Fake or Redundant materials from the Services and for the termination, in appropriate circumstances, of users of our Services who are repeat offenders. If you believe that anything on our Services is abnormal, you may notify Aawaz by contacting us.
-
+As an Aawaaz user, you have choices about how to protect and limit the collection, use, and disclosure of information about you.
+Accessing and Changing Your Information
+You can access and change certain information through the Services. 
+<br><br>
+<b>CONTACT US</b>
+<br><br>
+If you have any questions about this Privacy Policy, please contact us at contact@Aawaaz.com 
 </h6>
+<br>
+
+</p>
       <!-- Faq end -->
     </div>
     <div class="col-md-2">
@@ -169,7 +191,7 @@ Aawaz respects the intellectual property of others and requires that users of ou
 </div>
 
 
- <center> <p class="mt-5 mb-3 text-muted">&copy; ProxyChains</p></center>
+
 
    
 <script>
