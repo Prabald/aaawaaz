@@ -220,11 +220,11 @@ else {
        // this is footer
 
        echo " <form method='post' action='review.php' class='form-control'>
-    <input type='radio' name='rdb' value='One'/>
-       <input type='radio' name='rdb' value='Two'/>
-       <input type='radio' name='rdb' value='Three'/>
-       <input type='radio' name='rdb' value='Four'/>
-       <input type='radio' name='rdb' value='Five'/>
+    <input type='radio' name='veto' value='1'/>
+       <input type='radio' name='veto' value='2'/>
+       <input type='radio' name='veto' value='3'/>
+       <input type='radio' name='veto' value='4'/>
+       <input type='radio' name='veto' value='5'/>
 <textarea class='form-control' id='comment' name='comment' rows='3'></textarea>
     <input type='submit' name='submit' value='submit' class='btn-success'/>
 </form>";
