@@ -216,8 +216,24 @@ else {
         echo "<img style='width:100%;height:20em;' src='images/".$row['file']."' >";
         echo "</div>";
         echo "<div class='card-footer'>";
+
        // this is footer
-        echo "<p>".$row['text']."</p>";
+
+       echo " <form method='post' action='review.php' class='form-control'>
+    <input type='radio' name='rdb' value='One'/>
+       <input type='radio' name='rdb' value='Two'/>
+       <input type='radio' name='rdb' value='Three'/>
+       <input type='radio' name='rdb' value='Four'/>
+       <input type='radio' name='rdb' value='Five'/>
+<textarea class='form-control' id='comment' name='comment' rows='3'></textarea>
+    <input type='submit' name='submit' value='submit' class='btn-success'/>
+</form>";
+       
+       
+
+
+echo "</div>";
+         
         echo "</div>";
         
       echo "</div>";
