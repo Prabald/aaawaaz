@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Login || Aawaaj</title>
+	<title> Login || Aawaz</title>
 
 	 <!-- Required meta tags -->
     <meta charset="utf-8">

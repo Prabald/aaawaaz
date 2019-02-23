@@ -237,11 +237,11 @@ $location=mysqli_query($db, "SELECT * FROM users WHERE email=$email");
 ?>
   <div class="col-sm-4">
     <div class="row">
-        <h4>Raised issue in <?php echo $location; ?><br><?php echo $final_code;?></h4>
+        <h6>Showing the issues raised around PIN : <?php echo $location; ?><?php echo $final_code;?></h6>
     </div>
-    <br><br>
+    <br>
     <div class="row">
-        <h4>Number of issues raised by you are <br> 8</h4>
+        <h6>You Raised 8 issues</h6>
     </div>
 
   </div>
