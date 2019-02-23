@@ -213,7 +213,7 @@ else {
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
-        echo "<img style='width:100%;height:20em;' src='images/".$row['file']."' >";
+        echo "<img style='width:100%;height:100%;' src='images/".$row['file']."' >";
         echo "</div>";
         echo "<div class='card-footer'>";
 
