@@ -86,7 +86,7 @@ else {
 <body>
 <!-- this is header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <img src="images/navMonk.png" style="width: 60px; height: 60px;">
+  <img src="images/navMonk.png" style="width: 70px; height: 70px;">
  
  <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" style="padding-right: 200px;" type="search" placeholder="Search" aria-label="Search">
@@ -216,24 +216,9 @@ else {
         echo "<img style='width:100%;height:20em;' src='images/".$row['file']."' >";
         echo "</div>";
         echo "<div class='card-footer'>";
-
+        
        // this is footer
-
-       echo " <form method='post' action='review.php' class='form-control'>
-    <input type='radio' name='veto' value='1'/>
-       <input type='radio' name='veto' value='2'/>
-       <input type='radio' name='veto' value='3'/>
-       <input type='radio' name='veto' value='4'/>
-       <input type='radio' name='veto' value='5'/>
-<textarea class='form-control' id='comment' name='comment' rows='3'></textarea>
-    <input type='submit' name='submit' value='submit' class='btn-success'/>
-</form>";
-       
-       
-
-
-echo "</div>";
-         
+        echo "<p>".$row['text']."</p>";
         echo "</div>";
         
       echo "</div>";
