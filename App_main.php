@@ -86,7 +86,7 @@ else {
 <body>
 <!-- this is header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <img src="images/navMonk.png" style="width: 60px; height: 60px;">
+  <img src="images/navMonk.png" style="width: 70px; height: 70px;">
  
  <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" style="padding-right: 200px;" type="search" placeholder="Search" aria-label="Search">
