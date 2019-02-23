@@ -27,14 +27,14 @@
  	<div class="container w-50">
  		
     <form class="form-signin" action="login.php" method="POST">
-      <img class="mb-4" src="images/navMonk.png" alt="" width="200" height="200">
+      <img class="mb-4" src="images/navMonk.png" href="App_main.php" alt="" width="200" height="200">
 
       <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
       <div class='alert alert-info knowst' role='alert'>You have to login first</div>
       <br><div class='alert alert-info logout' role='alert'>Successfully Logged Out</div>
       <br>
       <label for="email" class="sr-only">Email address</label> 
-      <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus> <br>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">

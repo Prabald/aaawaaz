@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Sign Up || HTS</title>
+	<title> Sign Up || Aawaz</title>
 
 	 <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -32,7 +32,7 @@
 
  	<div class="container w-50">
     <form class="form-signin" id="FormSign" action="signup.php" method="POST">
-      <img class="mb-4" src="images/navMonk.png" alt="" width="200" height="200">
+      <img class="mb-4" src="images/navMonk.png" alt="logo" width="250" height="250">
      
       
       <h1 class="h3 mb-3 font-weight-normal" id="signintext">Please Sign Up</h1>
