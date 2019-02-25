@@ -2,6 +2,7 @@
 session_start();
  // database connection
       include("config.php");
+       $db = mysqli_connect("localhost", "root", "", "hts");
 
   if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
  
@@ -64,7 +65,24 @@ else {
 
 
 ?>
+<?php 
+                      $finalcode = mysqli_query($db, "SELECT pin FROM users WHERE id='$Session_id'");
+                       while ($row = mysqli_fetch_array($finalcode)) {
+                 $final_code = $row['pin'];
+            
+                                }
 
+                            /*    $Name1_query = mysqli_query($db, "SELECT uID FROM activity WHERE");
+                                $Name2_query = mysqli_query($db, "SELECT last_name FROM users WHERE id='$Session_id'");
+
+                       while ($row = mysqli_fetch_array($Name1_query)) {
+                 $first_name = $row['first_name'];
+            
+                                }
+*/
+                               
+
+            ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,6 +99,9 @@ else {
    <link rel="stylesheet" type="text/css" href="css/aos.css">
    <link rel="stylesheet" type="text/css" href="css/jquery.css">
    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/examples.css">
 
 </head>
 <body>
@@ -125,15 +146,20 @@ else {
 <!--open row -->
   <div class="row">
     <!--raise an issue field -->
-  <div class="col-sm-8">
+  <!--  <div class="col-sm-2"> </div> -->
+  <div class="col-sm-6 ml-4 mr-4">
      <div class="container">
 <!-- raise an issue -->
 
+ 
+
+
 <!-- this is dynamic data  -->
+
 
 <?php
   // Create database connection
-  $db = mysqli_connect("localhost", "root", "", "hts");
+ 
 
   // Initialize message variable
   $msg = "";
@@ -151,7 +177,8 @@ else {
 
      $pinC = $_POST['pinn'];
      $u_ID = $_POST['uID'];
-    $sql = "INSERT INTO activity (file,text, pincode, u_ID) VALUES ('$file', '$text_t','$pinC',$u_ID)";
+     $heading= $_POST['heading'];
+    $sql = "INSERT INTO activity (file,text, pincode, u_ID,heading) VALUES ('$file', '$text_t','$pinC','$u_ID','$heading')";
     // execute query
     
     mysqli_query($db, $sql);
@@ -163,52 +190,36 @@ else {
       $msg = "Failed to upload image";
     }
   }
-  $result = mysqli_query($db, "SELECT * FROM activity");
+  $result = mysqli_query($db, "SELECT * FROM activity WHERE pincode=$final_code");
 
 ?>
 
+ 
+
+
 
     <div class="card">
-      <div class="card-header">Raise an issue</div>
+      <div class="card-header"><p><b>Raise An Issue</b></p></div>
       <div class="card-body">
         <form method="POST" action="App_main.php" enctype="multipart/form-data">
           <input type="hidden" name="size" value="1000000">
 
 
-            <?php 
-                      $finalcode = mysqli_query($db, "SELECT pin FROM users WHERE id='$Session_id'");
-                       while ($row = mysqli_fetch_array($finalcode)) {
-                 $final_code = $row['pin'];
-            
-                                }
-
-                                $Name1_query = mysqli_query($db, "SELECT first_name FROM users WHERE uID='$Session_id'");
-                                $Name2_query = mysqli_query($db, "SELECT last_name FROM users WHERE id='$Session_id'");
-
-                       while ($row = mysqli_fetch_array($Name1_query)) {
-                 $first_name = $row['first_name'];
-            
-                                }
-
-                                while ($row = mysqli_fetch_array($Name2_query)) {
-                 $last_name = $row['last_name'];
-            
-                                }
-
-            ?>
+          
           <input type="hidden" name="pinn" value="<?php echo $final_code;?>">
           <input type="hidden" name="uID" value="<?php echo $Session_id;?>">
+          <input type="text" class="form-control" name="heading" placeholder="Enter Heading"><br>
           <textarea 
               id="text" 
-              cols="87" 
-              rows="4" 
+             
               name="text" 
-              placeholder="Type here...">
+              placeholder="Type here..."
+              class="form-control">
             </textarea>
-            <input type="file" name="file">
+            <input type="file" name="file" class="form-control">
        </div> 
       <div class="card-footer">
-        <button class="btn-success" type="submit" name="upload">Post</button>
+        <button class="btn-primary" type="submit" name="upload">Post</button>
         </form>
       </div>
       
@@ -220,23 +231,127 @@ else {
     <!-- dynamically generating post from data base start-->
   <?php
     while ($row = mysqli_fetch_array($result)) {
+  
+
+    /*   $first_name =  mysqli_query($connect,"SELECT first_name FROM users WHERE id={$row['u_ID']}");
+       //print_r($first_name);
+       while ($row1 = mysqli_fetch_array($first_name)) {
+                 $first_name1 = $row1['first_name'];
+                // print_r($row1);
+            
+                                }*/
       echo "<div class='container'>";
         echo "<div class='card'>";
         echo "<div class='card-header'>";
        // this is header
-        echo  "<h3><b>". $first_name." ".$last_name."</b></h3>";
+        echo `         
+
+            <b> `.$row['heading'].`</b>
+
+
+        `;
+
+
+
+       // echo  "<h3><b>". $first_name1." ".$last_name."</b></h3>";
         echo "</div>";
         echo "<div class='card-body'>";
         //this is content
+      
         echo "<center><img style='width:auto;height:300px;' src='images/".$row['file']."' ></center>";
         echo "</div>";
         echo "<div class='card-footer'>";
-
+ 
        // this is footer
-        echo "<p>".$row['text']."</p>";
-  
+        echo "<br><p>".$row['text']."</p>";
+        $pid = $row['a_id'];
+
+
+          $score = mysqli_query($connect, "SELECT rate FROM activity WHERE a_id='$pid'");
+
+          while ($row = @mysqli_fetch_array($score)) {  
+
+                  $score = $row['rate'];
+          }
+
+         
+       echo " <form action='App_main.php' method='POST' class='form-control'>
+                    
+                    <input  class='form-control' type='number'  max='5' min='0' name='rating' placeholder='On a scale of 0-5, how much does this bother you?'>
+                    <input type='hidden' value=".$pid." name='pid'><br>
+                    <input type='submit' value='submit' class='btn-primary'><br><br> <div class='alert alert-danger'>
+  <strong>Severity Rating : </strong> <b>".$score."</b>
+</div> 
+
+
+       </form>";
+        echo "</div> </div> </div><br><br>";
+ 
+
+
     }
   ?>
+
+ <?php 
+
+
+   $rating = $_POST['rating'];
+   $p_id = $_POST['pid'];
+
+
+
+  
+
+$Nvotes = "SELECT Nvotes FROM activity WHERE a_id='$p_id'";
+
+   //echo $pid;
+
+$run_query1 = mysqli_query($connect, $Nvotes);
+
+$sum = "SELECT sum FROM activity WHERE a_id='$p_id'";
+$run_query = mysqli_query($connect, $sum);
+
+ while ($row = mysqli_fetch_array($run_query1)) { 
+
+             $votes = $row['Nvotes'];
+
+
+  }
+
+
+//echo "VOTES : ".$votes;
+  while ($row = mysqli_fetch_array($run_query)) { 
+
+             $sum = $row['sum'];
+
+
+  }
+
+//echo "Sum : ".$sum;
+$votes = $votes +1;
+  $Tvotes = ($votes)*5;
+   $sum = (double)($sum + $rating);
+
+$score = (double)($sum/$Tvotes)*100;
+
+  
+   
+ $query =mysqli_query($connect, "UPDATE activity  SET sum='$sum' WHERE a_id='$p_id'"); 
+ $query =mysqli_query($connect, "UPDATE activity  SET Nvotes='$votes' WHERE a_id='$p_id'"); 
+  $query =mysqli_query($connect, "UPDATE activity  SET rate='$score' WHERE a_id='$p_id'"); 
+
+
+
+
+
+
+
+
+
+
+
+
+ ?>
          
   <!-- dynamically generating post from data base end-->
   </div>
@@ -248,17 +363,37 @@ else {
 $location=mysqli_query($db, "SELECT * FROM users WHERE email=$email");
   
 ?>
+
   <div class="col-sm-4">
+
+
     <div class="row">
-        <h6>Showing the issues raised around PIN : <?php echo $location; ?><?php echo $final_code;?></h6>
+        <h4>Showing the issues raised around PIN : <?php echo $location; ?><a href="#"><?php echo $final_code;?></a></h4>
     </div>
     <br>
     <div class="row">
-        <h6>You Raised 8 issues</h6>
+<?php 
+$result = mysqli_query($db, "SELECT * FROM activity WHERE pincode=$final_code");
+
+ $i =0;
+while($row = mysqli_fetch_array($result)) {
+        
+        $i = $i +1;
+
+}
+?>
+        <h6>Number of issues raised in your area : <b><?php echo $i;?> </b></h6>
+    </div><br>
+    <div class="row">
+        <img src="images/navMonk.png" style="width: 400px; height: 400px; position: fixed; ">
     </div>
 
   </div>
-</div>  
+</div>
+
+
+
+
 </div>
 
 
