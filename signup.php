@@ -38,15 +38,15 @@
       <h1 class="h3 mb-3 font-weight-normal" id="signintext">Please Sign Up</h1>
       <div class="row">
       	<div class="col-sm">
-       <input type="text" id="firstname" pattern="[A-Za-z]{40}" name="firstname" class="form-control" placeholder="First Name" required autofocus>
+       <input type="text" id="firstname" pattern="[A-Za-z]{2,}" name="firstname" class="form-control" placeholder="First Name" required autofocus>
         </div>
         <div class="col-sm">
-       <input type="text" id="lastname" pattern="[A-Za-z]{40}" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
+       <input type="text" id="lastname" pattern="[A-Za-z]{2,}" name="lastname" class="form-control" placeholder="Last Name" required autofocus>
          </div>
 
    </div>
    <br>
-       <input type="text" id="pin" name="pin" class="form-control" placeholder="PIN code" required autofocus>
+       <input type="number" id="pin" name="pin" class="form-control" placeholder="PIN code" minlength="6" maxlength="6"  required autofocus>
        <br>
       <label for="email" class="sr-only">Email address</label>
       <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
