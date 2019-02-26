@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
  // database connection
       include("config.php");
@@ -109,8 +110,8 @@ else {
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <img src="images/navMonk.png" style="width: 70px; height: 70px;">
  
- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" style="padding-right: 200px;" type="search" placeholder="Search" aria-label="Search">
+ <form class="form-inline my-2 my-lg-0" action="App_main.php" method="GET">
+      <input class="form-control mr-sm-2" style="padding-right: 200px;" type="search" placeholder="Search" aria-label="Search" name='searchQ'>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   <div class="collapse navbar-collapse" style="padding-left:160px;" id="navbarSupportedContent">
@@ -185,9 +186,9 @@ else {
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $target)) {
     
-      $msg = "Image uploaded successfully";
+      //$msg = "Image uploaded successfully";
     }else{
-      $msg = "Failed to upload image";
+      //$msg = "Failed to upload image";
     }
   }
   $result = mysqli_query($db, "SELECT * FROM activity WHERE pincode=$final_code");
@@ -230,9 +231,102 @@ else {
     <!-- post field end -->
     <!-- dynamically generating post from data base start-->
   <?php
+   
+    //Searching Process Through Data
+
+
+             $number_of_issues = 0;  //intialising number of issues for counting
+         
+   if (isset($_GET['searchQ'])) {
+                      
+                     $searchQ = $_GET['searchQ'];
+              $Returned_value = mysqli_query($connect,"SELECT * FROM activity WHERE heading LIKE '%$searchQ%' ");
+
+                            $keyword = "Number of issues related to '".$searchQ."' in your area : ";
+                             echo "<h2> Searched Results : </h2><br>";
+
+                     while ($row = mysqli_fetch_array($Returned_value))
+
+
+
+                      {
+                                      $number_of_issues++;  
+
+          $first_name =  mysqli_query($connect,"SELECT first_name FROM users WHERE id={$row['u_ID']}");
+                                //print_r($first_name);
+                                  while ($row1 = mysqli_fetch_array($first_name)) {
+                                  $first_name1 = $row1['first_name'];
+                                 // print_r($row1);
+            
+                                }
+ 
+      
+
+
+                               echo "<div class='container'>";
+                               echo "<div class='card'>";
+                              echo "<div class='card-header'>";
+                             // this is header
+                              echo `         
+
+                                  <b> `.$row['heading'].`</b>
+
+
+                              `;
+
+
+
+                             // echo  "<h3><b>". $first_name1." ".$last_name."</b></h3>";
+                              echo "</div>";
+                              echo "<div class='card-body'>";
+                              //this is content
+                            
+                              echo "<center><img style='width:auto;height:300px;' src='images/".$row['file']."' ></center>";
+                              echo "</div>";
+                              echo "<div class='card-footer'>";
+                       
+                             // this is footer
+                              echo "<br><p>".$row['text']."</p>";
+                              $pid = $row['a_id'];
+
+
+                                $score = mysqli_query($connect, "SELECT rate FROM activity WHERE a_id='$pid'");
+
+                                while ($row = mysqli_fetch_array($score)) {  
+
+                                        $score = $row['rate'];
+                                }
+
+                               
+                             echo " <form action='App_main.php' method='POST' class='form-control'>
+                                          
+                                          <input  class='form-control' type='number'  max='5' min='0' name='rating' placeholder='On a scale of 0-5, how much does this bother you?'>
+                                          <input type='hidden' value=".$pid." name='pid'><br>
+                                          <input type='submit' value='submit' class='btn-primary'><br><br> <div class='alert alert-danger'>
+                        <strong>Severity Rating : </strong> <b>".$score."</b>
+                      </div> 
+
+
+                             </form>";
+                              echo "</div> </div> </div><br><br>";
+                       
+
+
+                          }
+
+                     }
+                    
+                    
+           // }
+
+
+             else {
+
+              $keyword = 'Total Number of issues in your area : ';
+
     while ($row = mysqli_fetch_array($result)) {
   
-
+                                            $number_of_issues++;
     /*   $first_name =  mysqli_query($connect,"SELECT first_name FROM users WHERE id={$row['u_ID']}");
        //print_r($first_name);
        while ($row1 = mysqli_fetch_array($first_name)) {
@@ -290,6 +384,8 @@ else {
 
 
     }
+
+  }
   ?>
 
  <?php 
@@ -359,30 +455,18 @@ $score = (double)($sum/$Tvotes)*100;
   </div>
 <!-- container start end-->
 <!-- right sidebar start-->
-<?php
-$location=mysqli_query($db, "SELECT * FROM users WHERE email=$email");
-  
-?>
+
 
   <div class="col-sm-4">
 
 
     <div class="row">
-        <h4>Showing the issues raised around PIN : <?php echo $location; ?><a href="#"><?php echo $final_code;?></a></h4>
+        <h4>Showing the issues raised around PIN : <a href="#"><?php echo $final_code;?></a></h4>
     </div>
     <br>
     <div class="row">
-<?php 
-$result = mysqli_query($db, "SELECT * FROM activity WHERE pincode=$final_code");
 
- $i =0;
-while($row = mysqli_fetch_array($result)) {
-        
-        $i = $i +1;
-
-}
-?>
-        <h6>Number of issues raised in your area : <b><?php echo $i;?> </b></h6>
+        <h6> <?php echo $keyword; ?> <b><?php echo $number_of_issues;?> </b></h6>
     </div><br>
     <div class="row">
         <img src="images/navMonk.png" style="width: 400px; height: 400px; position: fixed; ">
@@ -428,31 +512,6 @@ while($row = mysqli_fetch_array($result)) {
       });
     </script>
 
-    <script type="text/javascript">
-
-      $('#loading-image').hide();
-      
-      $('#sub-form').submit(function(e){
-
-        
-    
-    e.preventDefault(); // Prevent Default Submission
-    
-    $.post('dataget.php', $(this).serialize() )
-    .done(function(data){
-      $('#loading-image').hide();
-      $('#form-content').fadeOut('slow', function(){
-        $('#form-content').fadeIn('slow').html(data);
-      });
-    })
-    .fail(function(){
-      alert('Ajax Submit Failed ...');
-      $('#form-content').show();
-        $('#loading-image').hide();
-    });
-    
-  });
-    </script>
 
    
 
