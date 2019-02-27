@@ -1,70 +1,58 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
  // database connection
-      include("config.php");
-
-  if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
- 
-                       $Session_id = $_SESSION['id'];
-                       @$Isadmin = $_SESSION['admin'];
-                       $email = $_SESSION['email'];
-
-                       $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
-                       $second_query =  mysqli_query($connect, "SELECT last_name FROM users WHERE email='$email' LIMIT 1");
-                      
-                      while ($row = mysqli_fetch_array($first_query)) {
-                 $firstname = $row['first_name'];
-                                                }
-
-                                                   while ($row = mysqli_fetch_array($second_query)) {
-                 $lastname = $row['last_name'];
-                                                }
-
-                       
-                /* $url = "http://postalpincode.in/api/pincode";
-                 $pincode =  mysqli_query($connect, "SELECT pin FROM users WHERE email='$email' LIMIT 1");
-                 
-                  while ($row = mysqli_fetch_array($pincode)) {
-                 $pincode = $row['pin'];
-                                                }
-                $url = $url."/".$pincode;
-                 $location = file_get_contents($url);
-                  $location = json_decode($location,true);
-                  $location = json_encode($location, true);
-                print_r($location);
-                       */
-
-                   if (@$_GET['AlreadyLogged'] == 'yes') {
-                      
-                     
-
-                     echo "<center><p class='alert alert-info' id='notice'>You are already logged In.  <a href='logout.php'>Logout First</a></p></center>";
-                    
-                   	
-   }
-
-
-
-
-  }
-
-
- 
+include("config.php");
+$db = mysqli_connect("localhost", "root", "", "hts");
+// validation
+if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
   
-
-
-
-else {
-                
-             header("location: login.php?knowst=loginfirst&submit=Submit+Query");
-
-
-
+  $Session_id = $_SESSION['id'];
+  $email = $_SESSION['email'];
+  
+  $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
+  $second_query =  mysqli_query($connect, "SELECT last_name FROM users WHERE email='$email' LIMIT 1");
+  //getting first name of user
+  while ($row = mysqli_fetch_array($first_query)) {
+    $firstname = $row['first_name'];
+  }
+  //getting last name of user
+  while ($row = mysqli_fetch_array($second_query)) {
+  $lastname = $row['last_name'];
+  }
+  
+  /* $url = "http://postalpincode.in/api/pincode";
+  $pincode =  mysqli_query($connect, "SELECT pin FROM users WHERE email='$email' LIMIT 1");
+  while ($row = mysqli_fetch_array($pincode)) {
+  $pincode = $row['pin'];
+  }
+  $url = $url."/".$pincode;
+  $location = file_get_contents($url);
+  $location = json_decode($location,true);
+  $location = json_encode($location, true);
+  print_r($location);
+  */
+  //Checking if someone is already logged in or not
+  if (@$_GET['AlreadyLogged'] == 'yes') {
+  echo "<center><p class='alert alert-info' id='notice'>You are already logged In.  <a href='logout.php'>Logout First</a></p></center>";}
 }
-
-
+else {header("location: login.php?knowst=loginfirst&submit=Submit+Query");}
 ?>
 
+<?php 
+// getting pincode of user
+$finalcode = mysqli_query($db, "SELECT pin FROM users WHERE id='$Session_id'");
+
+while ($row = mysqli_fetch_array($finalcode)){
+  $final_code = $row['pin'];
+}
+/*$Name1_query = mysqli_query($db, "SELECT uID FROM activity WHERE");
+$Name2_query = mysqli_query($db, "SELECT last_name FROM users WHERE id='$Session_id'");
+while ($row = mysqli_fetch_array($Name1_query)) {
+$first_name = $row['first_name'];
+}
+*/
+?>
 <!DOCTYPE html>
 <html>
 <head>

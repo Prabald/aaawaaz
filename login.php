@@ -16,12 +16,6 @@
    <link rel="stylesheet" type="text/css" href="css/custom.css">
 
 </head>
-
-
-
-<body>
-
-
  <body class="text-center">
 
  	<div class="container w-50">
@@ -60,124 +54,47 @@
  <input type="submit" name="submitt">
 	</form>
 
-  </body>
-      
-      
-
- 
-
-
-
-
-
-
-
-
-
-
-
- <!-- Required Javascript Files -->
-
- <script type="text/javascript" src="js/aos.js"></script>
- <script type="text/javascript" src="js/jquery.min.js"></script>
- <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
- 
-
+</body>
+<!-- Required Javascript Files -->
+<script type="text/javascript" src="js/aos.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </html>
-
-
 <?php
-          session_start();
+session_start();
 
-           if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
+if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
+  header("Location: App_main.php?AlreadyLogged=yes&submit=Submit+Query");
+}
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+require_once("config.php");
 
+$Email = $_POST['email'];
+$Password = $_POST['password'];
 
- 
-                       header("Location: App_main.php?AlreadyLogged=yes&submit=Submit+Query");
+$Id_query =  mysqli_query($connect, "SELECT id FROM users WHERE email='$Email' LIMIT 1");
 
-                     
+while ($row = mysqli_fetch_array($Id_query)) {
+  $Id = $row['id'];
+}
+$check_user = mysqli_query($connect, "SELECT id FROM users WHERE email='$Email' AND password='$Password'");
 
-
-  }
-
-
-     if ($_SERVER["REQUEST_METHOD"]=="POST") {
-
-
-     	        require_once("config.php");
-
-
-                 
-
-
-
-
-     	        $Email = $_POST['email'];
-     	        $Password = $_POST['password'];
-
-     	        $Id_query =  mysqli_query($connect, "SELECT id FROM users WHERE email='$Email' LIMIT 1");
-
-     	        while ($row = mysqli_fetch_array($Id_query)) {
-                 $Id = $row['id'];
-            
-                                }
-       
-                $check_user = mysqli_query($connect, "SELECT id FROM users WHERE email='$Email' AND password='$Password'");
-     	         
-
-
-            
-                              if(mysqli_num_rows($check_user) == 1) {
-
-                                 $_SESSION['email'] = $Email;
-                                  $_SESSION['id'] = $Id;
-                                  header("Location: App_main.php");
-                                  
-                                   }
-
-                                  else {
-
-                                    	echo "wrong username/password";
-                                    }
-   
-
-
-
-
-
-
-
-
+if(mysqli_num_rows($check_user) == 1) {
+  $_SESSION['email'] = $Email;
+  $_SESSION['id'] = $Id;
+  header("Location: App_main.php");
+}
+else {
+  echo "wrong username/password";
+}
+}
+if( @$_GET['knowst'] == 'loginfirst') {
+  echo " <script> $('.knowst').css('display', 'inline'); </script>";
 }
 
-
-  if ( @$_GET['knowst'] == 'loginfirst') {
-
-
-
-          
-          
-           echo " <script> $('.knowst').css('display', 'inline'); </script>";
+if ( @$_GET['logout'] != ''){
+  echo " <script> $('.logout').css('display', 'inline'); </script>";
 }
-
-
-   
-
-
-
-
-if ( @$_GET['logout'] != '') {
-
-
-
-          
-          
-           echo " <script> $('.logout').css('display', 'inline'); </script>";
-}
-
-
-
-
 
 ?>

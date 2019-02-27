@@ -28,50 +28,17 @@
  <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </html>
-
-
 <?php
-
 session_start();
 
- if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
- 
-
-                            session_destroy();
-
-                            if($_GET['knowst'] == 'admin')
-                            {
-                                       
-                                       header("Location: panel.php?knowst=panel&submit=Submit+Query");
-                                       # ?knowst=panel&submit=Submit+Query
-                                  
-                            }
-
-                            else {
-
-                            header("Location: login.php?logout=done&submitt=Submit+Query");
-                   }
-
-
-  }
-
-
-  else {
-
-               header("Location: login.php?knowst=done&submit=Submit+Query");
-
-
-
-  }
-
-
-
-
-
-
-
-
-
-
-
+if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
+  session_destroy();
+  if($_GET['knowst'] == 'admin'){
+  header("Location: panel.php?knowst=panel&submit=Submit+Query");
+ # ?knowst=panel&submit=Submit+Query
+}
+else {header("Location: login.php?logout=done&submitt=Submit+Query");
+}
+}
+else {header("Location: login.php?knowst=done&submit=Submit+Query");}
 ?>

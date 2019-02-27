@@ -1,69 +1,36 @@
 <?php
 session_start();
  // database connection
-      include("config.php");
-
+  include("config.php");
   if( isset( $_SESSION['email'] ) && isset($_SESSION['id']) ) {
- 
-                       $Session_id = $_SESSION['id'];
-                       @$Isadmin = $_SESSION['admin'];
-                       $email = $_SESSION['email'];
-
-                       $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
-                       $second_query =  mysqli_query($connect, "SELECT last_name FROM users WHERE email='$email' LIMIT 1");
-                      
-                      while ($row = mysqli_fetch_array($first_query)) {
-                 $firstname = $row['first_name'];
-                                                }
-
-                                                   while ($row = mysqli_fetch_array($second_query)) {
-                 $lastname = $row['last_name'];
-                                                }
-
-                       
-                /* $url = "http://postalpincode.in/api/pincode";
-                 $pincode =  mysqli_query($connect, "SELECT pin FROM users WHERE email='$email' LIMIT 1");
-                 
-                  while ($row = mysqli_fetch_array($pincode)) {
-                 $pincode = $row['pin'];
-                                                }
-                $url = $url."/".$pincode;
-                 $location = file_get_contents($url);
-                  $location = json_decode($location,true);
-                  $location = json_encode($location, true);
-                print_r($location);
-                       */
-
-                   if (@$_GET['AlreadyLogged'] == 'yes') {
-                      
-                     
-
-                     echo "<center><p class='alert alert-info' id='notice'>You are already logged In.  <a href='logout.php'>Logout First</a></p></center>";
-                    
-                   	
-   }
-
-
-
-
-  }
-
-
- 
-  
-
-
-
-else {
-                
-             header("location: login.php?knowst=loginfirst&submit=Submit+Query");
-
-
-
+    $Session_id = $_SESSION['id'];
+    @$Isadmin = $_SESSION['admin'];
+    $email = $_SESSION['email'];
+    $first_query =  mysqli_query($connect, "SELECT first_name FROM users WHERE email='$email' LIMIT 1");
+    $second_query =  mysqli_query($connect, "SELECT last_name FROM users WHERE email='$email' LIMIT 1");
+    
+    while ($row = mysqli_fetch_array($first_query)) {
+     $firstname = $row['first_name'];
+    }
+    while ($row = mysqli_fetch_array($second_query)) {
+      $lastname = $row['last_name'];
+    }
+/* $url = "http://postalpincode.in/api/pincode";
+$pincode =  mysqli_query($connect, "SELECT pin FROM users WHERE email='$email' LIMIT 1");
+while ($row = mysqli_fetch_array($pincode)) {
+ $pincode = $row['pin'];
+ }
+ $url = $url."/".$pincode;
+location = file_get_contents($url);
+$location = json_decode($location,true);
+$location = json_encode($location, true);
+print_r($location);
+*/
+if (@$_GET['AlreadyLogged'] == 'yes') {
+echo "<center><p class='alert alert-info' id='notice'>You are already logged In.  <a href='logout.php'>Logout First</a></p></center>";
 }
-
-
-?>
+}
+else {header("location: login.php?knowst=loginfirst&submit=Submit+Query");}?>
 
 <!DOCTYPE html>
 <html>
@@ -134,28 +101,18 @@ else {
 <br>
      <h5><b> 3. What makes Aawaz different from other social networking sites?</h5></b><br>
      <h6>Though Aawaaj offers everyone to raise queries, it does makes sure that the issue is genuine and not Fake/Unverified Viral/Redundant.In addition to it, it allows the people to review the issues and the Authorities who claim to solve them.This system allows a transparent portal for everyone to know different aspects of society.Also using the reviewing capacity enhances the results by pushing most relevant issues to highlights.This helps the people know which Authority works more diligently and with more perfection.</h6>
-
-
-
-
-
-      <!-- Faq end -->
+<!-- Faq end -->
     </div>
     <div class="col-md-2">
     </div>
   </div>
 </div>
-
-
- <!-- Required Javascript Files -->
+<!-- Required Javascript Files -->
 
  <script type="text/javascript" src="js/aos.js"></script>
  <script type="text/javascript" src="js/jquery.min.js"></script>
  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
-
-
-   
+  <script type="text/javascript" src="js/script.js"></script>   
 <script>
 //This script is a extra of AOS 
       AOS.init({
